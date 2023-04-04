@@ -11,28 +11,23 @@ class StackUsingArray {
 	int top = -1;
 
 public:
-	void push(int x)
-	{
+	void push(int x) {
 		top++;
 
-		if (top == MAX)
-		{
+		if (top == MAX) {
 			top--;
 			cerr << "ERROR: Stack Overflow\n";
 		}
-		else
-		{
+		else {
 			stack[top] = x;
 		}
 	}
 
 	int pop() {
-		if (top == -1)
-		{
+		if (top == -1) {
 			cerr << "ERROR: Stack Underflow\n";
 		}
-		else
-		{
+		else {
 			int x = stack[top];
 			top--;
 			return x;
@@ -121,10 +116,8 @@ public:
 #define TIMES 1000
 
 int main() {
-	//Calculate time for StackUsingArray
 	auto start1 = high_resolution_clock::now();
-	for (int i = 0; i < TIMES; i++)
-	{
+	for (int i = 0; i < TIMES; i++) {
 		StackUsingArray stackArray;
 
 		stackArray.push(8);
@@ -156,7 +149,6 @@ int main() {
 	auto duration1 = duration_cast<microseconds>(stop1 - start1);
 	auto time1 = duration1.count() / TIMES;
 
-	//Calculate time for StackUsingList
 	auto start2 = high_resolution_clock::now();
 	for (int i = 0; i < TIMES; i++)
 	{
