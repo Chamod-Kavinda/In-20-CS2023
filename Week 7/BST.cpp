@@ -38,7 +38,6 @@ struct node* insertNode(struct node* root, int key) {
     return root;
 }
 
-
 struct node* minValueNode(struct node* node) {
     struct node* temp2 = node;
     while (temp2 && temp2->left != NULL) {
@@ -60,18 +59,18 @@ struct node* deleteNode(struct node* root, int key) {
     }
     else {
         if (root->left == NULL) {
-            struct node* temp = root->right;
+            struct node* temp3 = root->right;
             delete root;
-            return temp;
+            return temp3;
         }
         else if (root->right == NULL) {
-            struct node* temp = root->left;
+            struct node* temp3 = root->left;
             delete root;
-            return temp;
+            return temp3;
         }
-        struct node* temp = minValueNode(root->right);
-        root->key = temp->key;
-        root->right = deleteNode(root->right, temp->key);
+        struct node* temp3 = minValueNode(root->right);
+        root->key = temp3->key;
+        root->right = deleteNode(root->right, temp3->key);
     }
     return root;
 }
